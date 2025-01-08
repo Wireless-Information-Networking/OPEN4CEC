@@ -1,0 +1,49 @@
+Añadir funcionalidades RedOS                                                                    ENTSO-E
+    % Energia renovable en el mercado                               X
+    Demanda                                                                                                                          
+    Precio                                                          X
+
+Añadir campo de consumo estimado                                                                Propio  
+Calcular instalación                                                                            Propio
+
+Obtener datos del usuario                                           X                            
+    Localización                                                                                Propio
+    Hora                                                                                        Propio
+    Clima                                                                                       WeatherAPI
+
+BD europa                                                                                       ??
+
+- coger ultima hora
+- seleccionar solo los puntos que correspondan a la ulitma hora
+
+
+CARTAS (funcionalidades) FINALES:
+
+    - estimacion de generacion de una comunidad instantanea (POSIBILIDAD DE SEPARAR EN 2 CLIMA/GEN)               STATUS (D/P/ )
+    	- se añade los datos de instalación del usuario en la maquina del usuario
+    	- obtiene posición en latitud y longitud                                                                    D
+    	- se obtiene pais con API                                                                                   D
+    	- se obtiene el clima con API                                                                               D
+    	- se hace el calculo de generación
+
+    - prediccion de precio del dia                                                                                  D
+    	req: pais del ususario                                                                                      
+    	-se obtiene con API                                                                                         
+
+    - demanda del dia                                                                                               
+	req: pais del ususario
+    	-se obtiene con API
+
+    - generacion por tipo del dia                                                                                   D                                    
+    	req: pais del ususario
+    	-se obtiene con API
+
+    - recomendación ia
+
+==============================================
+
+A varias opciones repercusión en precio y %verde
+grafica de precios/generación
+    
+==============================================
+- version consejo sin reglas

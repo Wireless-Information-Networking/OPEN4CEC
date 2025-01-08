@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flip Card Example</title>
+  <style>
+    /* Flip container */
+    .flip-card {
+      background-color: transparent;
+      width: 400px;
+      height: 300px;
+      perspective: 1000px; /* Creates 3D space */
+      margin: auto;
+    }
+
+    /* Flip card inner wrapper */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    /* Front and Back of the card */
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Hide back side on flip */
+      backface-visibility: hidden;
+    }
+
+    /* Front card style */
+    .flip-card-front {
+      background-color: #fff;
+      color: black;
+    }
+
+    /* Back card style */
+    .flip-card-back {
+      background-color: #009688;
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    /* Rotate card on hover (desktop) */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Grid style for the card content */
+    .card-content {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="flip-card" id="siri-card">
+  <div class="flip-card-inner">
+    <!-- Front side -->
+    <div class="flip-card-front">
+      <div class="card-content">
+        <div class="grid-item">advice</div>
+        <div class="grid-icon">💰</div>
+        <div class="grid-icon">🌍</div>
+        <div class="grid-icon">⚡</div>
+        <div class="grid-icon">🔋</div>
+        <div class="grid-item">sell PV electricity</div>
+        <div class="grid-item" style="color: #33CC00;">8</div>
+        <div class="grid-item" style="color: #009900;">10</div>
+        <div class="grid-item" style="color: #FF6600;">3</div>
+        <div class="grid-item" style="color: #FF3300;">2</div>
+        <!-- Additional rows as needed -->
+      </div>
+    </div>
+
+    <!-- Back side -->
+    <div class="flip-card-back">
+      <h2>More Information</h2>
+      <p>Details about energy usage, CO2 savings, and more.</p>
+      <!-- Add additional content on the back side -->
+    </div>
+  </div>
+</div>
+
+<script>
+  // JavaScript to handle click event on mobile devices
+  const card = document.getElementById('siri-card');
+  card.addEventListener('click', function() {
+    const inner = this.querySelector('.flip-card-inner');
+    inner.style.transform = inner.style.transform === 'rotateY(180deg)' ? 'rotateY(0)' : 'rotateY(180deg)';
+  });
+</script>
+
+</body>
+</html>

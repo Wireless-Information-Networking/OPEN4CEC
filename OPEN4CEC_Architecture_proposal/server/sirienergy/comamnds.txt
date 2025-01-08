@@ -1,0 +1,5 @@
+BUILD DOCKER FILE
+    docker build -t sirienergy-v-0-10-0 .
+
+RUN
+    docker run -d -p 5000:5000 --env-file .env uabenergy-v-0-10-0

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SIRIENERGY</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/assets.css">
+        <link rel="manifest" href="manifest.json">
+        <link rel="icon" href="/assets/images/icons/circle.ico">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>SIRIENERGY</h1>
+        </header>
+        <div id="home" class="main-page">
+            <div class="album">
+                <div class="card" id="weather-card">
+                    <div class="loader"></div>
+                </div>
+                <div class="card" id="price-card">
+                    <div class="loader"></div>
+                </div>
+                <div class="card" id="PV-generation-card">
+                    <div class="loader"></div>
+                </div>
+                <div class="card" id="sell-card">
+                    <div class="loader"></div>
+                </div>
+                <div class="card" id="country-generation-card">
+                    <div class="loader"></div>
+                </div>
+                <div class="card" id="advice-card">
+                    <div id="radio-container">
+                        <div class="radio-input">
+                            <div class="radio-input-path">
+                              <div class="radioContainer1 radioContainer">
+                                <label class="label1" for="value-1">self consumtion</label>
+                                <input class="radio1" value="value-1" name="value-radio" id="value-1" type="radio"/>
+                              </div>
+                              <div class="radioContainer radioContainer2">
+                                <label class="label2" for="value-2">charge batteries</label>
+                                <input class="radio2" value="value-2" name="value-radio" id="value-2" type="radio" />
+                              </div>
+                              <div class="radioContainer radioContainer3">
+                                <label class="label3" for="value-3">sell electricity</label>
+                                <input class="radio3" value="value-3" name="value-radio" id="value-3" type="radio"
+                                />
+                              </div>
+                              <div class="radioContainer radioContainer4">
+                                <label class="label4" for="value-4">buy electricity</label>
+                                <input class="radio4" value="value-4" name="value-radio" id="value-4" type="radio" />
+                              </div>
+                            </div>
+                            <div class="knob">
+                              <div class="center"></div>
+                            </div>
+                          </div> 
+                    </div>
+                    <div id="advice-graph-container" style="display: flex;">
+                        <div class="loader"></div>
+                    </div>
+                </div> 
+                <div class="flip-card" id="siri-card" style="display: flex;">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <p>If you want to save money today you should use PV for self-consumtion </p>
+                            <p>If you are worried about your CO2 printfoot today you should sell PV electricity </p>
+                            <p style="color: darkgray;"> Flip card for more detailed info </p>
+                        </div>
+                        <div class="flip-card-back" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: auto; padding: 5px;">
+                            <div class="grid-item">advice</div>
+                            <div class="grid-icon">
+                                💰
+                                <div class="info-block" >
+                                    Money spent refers to the cost associated with each action. Lower is better.
+                                </div>
+                            </div>
+                            <div class="grid-icon">
+                                🌍
+                                <div class="info-block" >
+                                    CO2 impact reflects the environmental effect, with lower emissions being better.
+                                </div>
+                            </div>
+                            <div class="grid-icon">
+                                ⚡
+                                <div class="info-block">
+                                    Self-consumption shows how much energy is able for your own needs.
+                                </div>
+                            </div>
+                            <div class="grid-icon">
+                                🔋
+                                <div class="info-block" >
+                                    Battery load indicates how much energy is stored in batteries.
+                                </div>
+                            </div>
+                            <div class="grid-item">sell PV electricity</div>
+                            <div class="grid-item" style="color: #33CC00;">8</div> 
+                            <div class="grid-item" style="color: #009900;">10</div> 
+                            <div class="grid-item" style="color: #FF6600;">3</div> 
+                            <div class="grid-item" style="color: #FF3300;">2</div> 
+                            <div class="grid-item">buy electricity</div>
+                            <div class="grid-item" style="color: #FF3300;">2</div> 
+                            <div class="grid-item" style="color: #99CC00;">6</div> 
+                            <div class="grid-item" style="color: #FF6600;">3</div> 
+                            <div class="grid-item" style="color: #FF9900;">4</div> 
+                            <div class="grid-item">charge batteries</div>
+                            <div class="grid-item" style="color: #99CC00;">6</div> 
+                            <div class="grid-item" style="color: #CCCC00;">5</div> 
+                            <div class="grid-item" style="color: #66CC00;">7</div> 
+                            <div class="grid-item" style="color: #009900;">10</div> 
+                            <div class="grid-item">use PV for self-consumption</div>
+                            <div class="grid-item" style="color: #33CC00;">8</div> 
+                            <div class="grid-item" style="color: #00CC00;">9</div> 
+                            <div class="grid-item" style="color: #009900;">10</div>
+                            <div class="grid-item" style="color: #CCCC00;">5</div>
+                        </div>
+                    </div>
+                </div>  
+                             
+            </div>
+        </div>
+        <div id="user" class="main-page">
+            <form id="user-form">
+                <div id=" user-position-form">
+                    <h2>Location:</h2>
+                    <div>
+                        <label for="country-select">Choose a country:</label>
+                        <select id="country-select" name="countries">
+                            <option value="Austria">Austria</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxemburg">Luxemburg</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Spain">Spain</option>
+                        </select>
+                    </div>
+                    PV position (latitude, longitude):<input type="number" step="0.01" name="lat" id="lat">º<input type="number" step="0.01" name="lon" id="lon">º
+                    <button type="button" onclick="getCoords()"> Get location </button><br />
+                    Altitude:<input type="number" step="0.01" name="alt" id="alt">m <br>
+                    Time Zone:<select id="time-zone-input" name="timezone">
+                        <option value="Europe/Vienna">Europe/Vienna</option>
+                        <option value="Europe/Brussels">Europe/Brussels</option>
+                        <option value="Europe/Zagreb">Europe/Zagreb</option>
+                        <option value="Europe/Tallinn">Europe/Tallinn</option>
+                        <option value="Europe/Helsinki">Europe/Helsinki</option>
+                        <option value="Europe/Paris">Europe/Paris</option>
+                        <option value="Europe/Berlin">Europe/Berlin</option>
+                        <option value="Europe/Athens">Europe/Athens</option>
+                        <option value="Europe/Budapest">Europe/Budapest</option>
+                        <option value="Europe/Riga">Europe/Riga</option>
+                        <option value="Europe/Vilnius">Europe/Vilnius</option>
+                        <option value="Europe/Luxembourg">Europe/Luxembourg</option>
+                        <option value="Europe/Amsterdam">Europe/Amsterdam</option>
+                        <option value="Europe/Warsaw">Europe/Warsaw</option>
+                        <option value="Europe/Lisbon">Europe/Lisbon</option>
+                        <option value="Europe/Bucharest">Europe/Bucharest</option>
+                        <option value="Europe/Bratislava">Europe/Bratislava</option>
+                        <option value="Europe/Ljubljana">Europe/Ljubljana</option>
+                        <option value="Europe/Madrid">Europe/Madrid</option>
+                      </select><br>
+                </div>
+                <div id="user-install-form">
+                    <h2>PV Installation</h2>
+                    Total surface:<input type="number" step="0.01" name="surface" id="surface">m&sup2;<br/>
+                    Panel efficiency:<input type="number" step="0.01" name="efficiency" id="efficiency">%
+                </div>
+                <div id="sell-form">
+                    <h2>PV Installation</h2>
+                    Fee type:<select id="fee-type-input" name="fee-type">
+                        <option value="FIXED">Self-consumption with surplus compensation</option>
+                        <option value="MARKET">Direct sale of electricity to the grid</option>
+                    </select><br>
+                    Value (only if your fee type is self-consumption with surplus compensation):<input type="number" step="0.01" name="fixed-value" id="fixed-value">€/kWh
+                </div>
+                <button type="submit"> Save </button>
+            </form>
+            
+        </div>
+        <div id="nav">
+            <div class="nav-item" id="home-nav-item">
+                <button onclick="showHome()">
+                    <img src="./assets/images/nav-icons/home_icon.svg" alt="User icon image">
+                </button>
+            </div>
+            <div class="nav-item" id="user-nav-item">
+                <button onclick="showUser()">
+                   <img src="./assets/images/nav-icons/user_icon.svg" alt="User icon image">
+                </button>
+            </div>
+        </div>
+        <script src="js/app.js"></script>
+    </body>
+</html>

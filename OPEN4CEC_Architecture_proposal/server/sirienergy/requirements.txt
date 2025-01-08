@@ -1,0 +1,10 @@
+Flask==2.1.1
+requests==2.26.0
+Werkzeug==2.0.3
+python-dotenv==0.20.0
+xmltodict==0.12.0
+pvlib==0.11.0
+pandas
+openmeteo-requests
+requests-cache
+retry-requests
