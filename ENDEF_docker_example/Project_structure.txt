@@ -1,0 +1,13 @@
+/monitorizacion
+│
+├── docker-compose.yml
+├── emoncms/
+│   └── Dockerfile
+├── nodered/
+│   └── Dockerfile
+├── php/
+│   └── Dockerfile
+├── python/
+│   └── Dockerfile
+└── javascript/
+    └── Dockerfile
